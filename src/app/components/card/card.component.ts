@@ -1,4 +1,4 @@
-import { Component, computed, input } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { NgClass } from '@angular/common';
 
 @Component({
@@ -8,13 +8,17 @@ import { NgClass } from '@angular/common';
   templateUrl: './card.component.html',
   styleUrl: './card.component.scss',
 })
-export class CardComponent {
-  emoji = input.required<string>();
-  visible = input.required<boolean>();
+export class CardComponent implements OnChanges {
+  @Input({ required: true }) emoji: string = '';
+  @Input({ required: true }) visible: boolean = false;
 
-  protected contentClass = computed<'hidden' | 'visible'>(() => {
-    if (this.visible()) {
-      return 'visible';
-    } else return 'hidden';
-  });
+  contentClass: 'hidden' | 'visible' = 'hidden';
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes['visible']) {
+      changes['visible'].currentValue
+        ? (this.contentClass = 'visible')
+        : (this.contentClass = 'hidden');
+    }
+  }
 }

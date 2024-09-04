@@ -1,7 +1,7 @@
 <div class="stop-watch">
-  <h2>{{ watch() }}</h2>
+  <h2>{{ counter | date:"mm:ss" }}</h2>
   <div (click)="handleClick()" class="controller">
-    @if (runningStopwatch()) {
+    @if (running) {
     <i class="ph-fill ph-pause"></i>
     } @else {
     <i class="ph-fill ph-play"></i>

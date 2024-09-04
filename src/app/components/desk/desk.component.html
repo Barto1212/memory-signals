@@ -1,5 +1,5 @@
 <div class="cards-container">
-  @for (card of cards(); track index; let index = $index; ) {
+  @for (card of cards; track index; let index = $index; ) {
   <app-card
     (click)="onClick(index)"
     [emoji]="card.emoji"

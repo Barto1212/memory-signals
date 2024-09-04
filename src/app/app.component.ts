@@ -11,11 +11,19 @@ import { StopwatchComponent } from './components/stopwatch/stopwatch.component';
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
-  runningStopwatch = signal<boolean>(true);
+  runningStopwatch: boolean = true;
+
+  protected continueGame() {
+    this.runningStopwatch = true;
+  }
+
+  protected changeRunningStopwatch($event: boolean) {
+    this.runningStopwatch = $event;
+  }
 
   protected congratulate(tries: number) {
     setTimeout(() => {
-      this.runningStopwatch.update((s) => !s);
+      this.runningStopwatch = false;
       alert(`Félicitation : vous avez gagné en ${tries} coups`);
     }, 200);
   }
