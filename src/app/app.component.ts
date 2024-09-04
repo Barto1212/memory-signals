@@ -15,7 +15,7 @@ export class AppComponent {
 
   protected congratulate(tries: number) {
     setTimeout(() => {
-      this.runningStopwatch.update((s) => !s);
+      this.runningStopwatch.set(false);
       alert(`Félicitation : vous avez gagné en ${tries} coups`);
     }, 200);
   }
