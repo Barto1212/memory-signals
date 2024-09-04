@@ -1,0 +1,9 @@
+<div class="cards-container">
+  @for (card of cards(); track index; let index = $index; ) {
+  <app-card
+    (click)="onClick(index)"
+    [emoji]="card.emoji"
+    [visible]="card.attempting || card.pairFound"
+  ></app-card>
+  }
+</div>

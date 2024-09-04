@@ -1,0 +1,10 @@
+<div class="stop-watch">
+  <h2>{{ watch() }}</h2>
+  <div (click)="handleClick()" class="controller">
+    @if (runningStopwatch()) {
+    <i class="ph-fill ph-pause"></i>
+    } @else {
+    <i class="ph-fill ph-play"></i>
+    }
+  </div>
+</div>

@@ -1,0 +1,8 @@
+<div class="app">
+  <h1>Pet Memory</h1>
+  <app-desk
+    (click)="runningStopwatch.set(true)"
+    (triesToWin)="congratulate($event)"
+  ></app-desk>
+  <app-stopwatch [(runningStopwatch)]="runningStopwatch"></app-stopwatch>
+</div>
